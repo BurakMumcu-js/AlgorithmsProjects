@@ -7,22 +7,22 @@ public class Main {
         int[] dizi = new int[10000];
         Random rastgele = new Random();
 
-        // Diziye rastgele sayılar ekleme
-        for (int i = 0; i < dizi.length; i++) {
-            dizi[i] = rastgele.nextInt();
+        
+        for (int x = 0; x < dizi.length; x++) {
+            dizi[x] = rastgele.nextInt();
         }
 
         // Max Bulma Algoritması
-        long baslangicZamani = System.nanoTime();
+        long baslangic = System.nanoTime();
         int max = maxBulma(dizi);
-        long bitisZamani = System.nanoTime();
-        long calismaSuresi = bitisZamani - baslangicZamani;
+        long bitis = System.nanoTime();
+        long calismaSuresi = bitis - baslangic;
 
         System.out.println("Max Bulma Algoritması çalışma süresi: " + calismaSuresi + " nanosaniye.");
-        // BruteForce Algoritması
-        baslangicZamani = System.nanoTime();
+     
+        baslangic = System.nanoTime();
         int maxBrute = maxBulmaBruteForce(dizi);
-        bitisZamani = System.nanoTime();
+        bitis = System.nanoTime();
         calismaSuresi = bitisZamani - baslangicZamani;
 
         System.out.println("BruteForce Algoritması çalışma süresi: " + calismaSuresi + " nanosaniye.");
@@ -30,9 +30,9 @@ public class Main {
 
     public static int maxBulma(int[] dizi) {
         int max = Integer.MIN_VALUE;
-        for (int i = 0; i < dizi.length; i++) {
-            if (dizi[i] > max) {
-                max = dizi[i];
+        for (int x = 0; x < dizi.length; x++) {
+            if (dizi[x] > max) {
+                max = dizi[x];
             }
         }
         return max;
@@ -40,10 +40,10 @@ public class Main {
 
     public static int maxBulmaBruteForce(int[] dizi) {
         int max = Integer.MIN_VALUE;
-        for (int i = 0; i < dizi.length; i++) {
-            for (int j = i + 1; j < dizi.length; j++) {
+        for (int x = 0; x < dizi.length; x++) {
+            for (int y = x + 1; y < dizi.length; y++) {
                 if (dizi[j] > max) {
-                    max = dizi[j];
+                    max = dizi[y];
                 }
             }
         }
